@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Availability</title>
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Link to a CSS file if available -->
+</head>
+<body>
+  <header>
+    <h1>Train Availability from <%= startStation %> to <%= endStation %></h1>
+    <form action="/search-result" method="get">
+      <label for="startStation">Start Station:</label>
+      <input type="text" id="startStation" name="startStation" required>
+
+      <label for="endStation">End Station:</label>
+      <input type="text" id="endStation" name="endStation" required>
+
+      <button type="submit">Search</button>
+    </form>
+  </header>
+
+  <main>
+    <% if (trains.length > 0) { %>
+      <ul class="train-list">
+        <% trains.forEach(train => { %>
+          <li class="train-item">
+            <h2><%= train.name %> (<%= train.trainNumber %>)</h2>
+            <p><strong>Departure:</strong> <%= train.startStation %> at <%= train.departureTime %></p>
+            <p><strong>Arrival:</strong> <%= train.endStation %> at <%= train.arrivalTime %></p>
+            <p><strong>Duration:</strong> <%= train.duration %></p>
+            <p><strong>Available Seats:</strong> <%= train.availableSeats %></p>
+            <a href="/trains/book?trainId=<%= train._id %>">Book Now</a>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No trains available from <%= startStation %> to <%= endStation %>.</p>
+    <% } %>
+  </main>
+
+  <style>
+    /* Basic styling */
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { padding: 20px; background-color: #004080; color: white; text-align: center; }
+    form { display: inline-flex; gap: 10px; align-items: center; }
+    main { padding: 20px; }
+    .train-list { list-style: none; padding: 0; }
+    .train-item { border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; border-radius: 8px; }
+    .train-item h2 { margin-top: 0; }
+    a { color: #004080; text-decoration: none; font-weight: bold; }
+  </style>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin Register</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <h2>Admin Registration</h2>
+    <form id="registerForm" action="/admins/admin-register" method="POST">
+      <input type="text" id="name" name="name" placeholder="Name" required />
+      <input type="email" id="email" name="email" placeholder="Email" required />
+      <input type="password" id="password" name="password" placeholder="Password" required />
+      <button type="submit">Register</button>
+    </form>
+    
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

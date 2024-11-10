@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book a Ticket</title>
+    <link rel="stylesheet" href="/css/customer.css">
+</head>
+<body>
+    <h1>Book a Ticket</h1>
+    <form id="booking-form" action="/customer/booking" method="post">
+        <label for="trainNumber">Train Number:</label>
+        <input type="text" id="trainNumber" name="trainNumber" required>
+
+        <label for="passengerName">Passenger Name:</label>
+        <input type="text" id="passengerName" name="passengerName" required>
+
+        <label for="passengerAge">Passenger Age:</label>
+        <input type="number" id="passengerAge" name="passengerAge" required>
+
+        <button type="submit">Book Ticket</button>
+    </form>
+    <script src="../js/customer.js"></script>
+</body>
+</html>

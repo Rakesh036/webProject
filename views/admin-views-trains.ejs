@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Trains</title>
+</head>
+<body>
+    <h1>All Trains</h1>
+    <a href="/admins/trains/addTrain">Add New Train</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Train Number</th>
+                <th>Name</th>
+                <th>Start Station</th>
+                <th>End Station</th>
+                <th>Seats Available</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% trains.forEach(train => { %>
+                <tr>
+                    <td><%= train.trainNumber %></td>
+                    <td><%= train.name %></td>
+                    <td><%= train.startStation %></td>
+                    <td><%= train.endStation %></td>
+                    <td><%= train.seatsAvailable %></td>
+                    <td>
+                        <a href="/admins/trains/edit/<%= train._id %>">Edit</a>
+                        <a href="/admins/trains/delete/<%= train._id %>">Delete</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

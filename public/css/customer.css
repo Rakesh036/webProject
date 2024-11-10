@@ -1,0 +1,170 @@
+/* Resetting margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body setup */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb); /* Soft gradient of blue tones for a peaceful feel */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main container setup */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Header Styling */
+header {
+    background: #fff;
+    color: #5c6bc0; /* Light purple-blue for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #555;
+}
+
+/* Section Styling */
+section {
+    margin-top: 40px;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #ff6f61; /* A warm peachy color */
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ffcc5c; /* Accent color */
+}
+
+section p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Buttons */
+a.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #5c6bc0;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+a.btn:hover {
+    background-color: #3f51b5; /* Slightly darker blue on hover */
+    transform: translateY(-3px); /* Lifting effect */
+}
+
+/* Form Styling */
+form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #5c6bc0;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 1.1rem;
+}
+
+form input:focus {
+    border-color: #5c6bc0;
+    outline: none;
+}
+
+form button {
+    background-color: #5c6bc0;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #3f51b5;
+    transform: translateY(-3px);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+
+    a.btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    form input, form button {
+        font-size: 1rem;
+    }
+}

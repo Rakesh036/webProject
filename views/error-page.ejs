@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Page</title>
+    <style>
+      /* Styling the error page */
+      body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        font-family: Arial, sans-serif;
+        color: #fff;
+      }
+
+      .error-container {
+        text-align: center;
+        padding: 40px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        font-size: 60px;
+        margin: 0;
+        color: #ff5e5e;
+      }
+
+      p {
+        font-size: 18px;
+        margin: 10px 0 30px;
+      }
+
+      .btn-home {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #ff5e5e;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .btn-home:hover {
+        background-color: #e04c4c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-container">
+      <h1>404</h1>
+      <p>Oops! The page you are looking for cannot be found.</p>
+      <button class="btn-home" onclick="goToHome()">Go to Home</button>
+    </div>
+
+    <script>
+      function goToHome() {
+        window.location.href = "/"; // Redirects to the homepage
+      }
+    </script>
+  </body>
+</html>

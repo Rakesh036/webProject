@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Train</title>
+</head>
+<body>
+    <h1>Edit Train</h1>
+    <form action="/admin/trains/edit/<%= train._id %>" method="POST">
+        <label for="trainNumber">Train Number:</label>
+        <input type="text" id="trainNumber" name="trainNumber" value="<%= train.trainNumber %>" required><br><br>
+
+        <label for="name">Train Name:</label>
+        <input type="text" id="name" name="name" value="<%= train.name %>" required><br><br>
+
+        <label for="startStation">Start Station:</label>
+        <input type="text" id="startStation" name="startStation" value="<%= train.startStation %>" required><br><br>
+
+        <label for="endStation">End Station:</label>
+        <input type="text" id="endStation" name="endStation" value="<%= train.endStation %>" required><br><br>
+
+        <label for="seatsAvailable">Seats Available:</label>
+        <input type="number" id="seatsAvailable" name="seatsAvailable" value="<%= train.seatsAvailable %>" required><br><br>
+
+        <button type="submit">Update Train</button>
+    </form>
+    <a href="/admin/trains">Back to Train List</a>
+</body>
+</html>

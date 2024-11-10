@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manage Stoppages</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <h1>Manage Train Stoppages</h1>
+    <form id="manage-stoppages-form">
+      <label for="trainNumber">Train Number:</label>
+      <input type="text" id="trainNumber" name="trainNumber" required />
+
+      <label for="stationName">Station Name:</label>
+      <input type="text" id="stationName" name="stationName" required />
+
+      <label for="arrivalTime">Arrival Time:</label>
+      <input type="time" id="arrivalTime" name="arrivalTime" />
+
+      <label for="departureTime">Departure Time:</label>
+      <input type="time" id="departureTime" name="departureTime" />
+
+      <button type="submit">Add Stoppage</button>
+    </form>
+    <script src="../js/admin.js"></script>
+  </body>
+</html>

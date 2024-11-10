@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Manage Trains</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <h2>Add Train</h2>
+    <form id="addTrainForm" action="/add-trains" method="post">
+      <input type="text" id="trainNumber" placeholder="Train Number" required />
+      <input type="text" id="name" placeholder="Train Name" required />
+      <input
+        type="text"
+        id="startStation"
+        placeholder="Starting Station"
+        required
+      />
+      <input
+        type="text"
+        id="endStation"
+        placeholder="Ending Station"
+        required
+      />
+      <input
+        type="text"
+        id="stoppages"
+        placeholder="Stoppage Stations (comma-separated)"
+        required
+      />
+      <button type="submit">Add Train</button>
+    </form>
+
+    <h2>Remove Train</h2>
+    <form id="removeTrainForm"action="/remove-trains" method="post">
+      <input type="text" id="trainId" placeholder="Train ID" required />
+      <button type="submit">Remove Train</button>
+    </form>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

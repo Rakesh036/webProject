@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Trains</title>
+    <link rel="stylesheet" href="/css/customer.css">
+</head>
+<body>
+    <h1>Search for Trains</h1>
+    <form id="search-train-form" action="/search-results" method="post">
+        <label for="startStation">Start Station:</label>
+        <input type="text" id="startStation" name="startStation" required>
+
+        <label for="endStation">End Station:</label>
+        <input type="text" id="endStation" name="endStation" required>
+
+        <label for="travelDate">Travel Date:</label>
+        <input type="date" id="travelDate" name="travelDate" required>
+
+        <button type="submit">Search Trains</button>
+    </form>
+    <div id="train-results">
+        <!-- Train results displayed here via JavaScript -->
+    </div>
+    <script src="../js/customer.js"></script>
+</body>
+</html>
