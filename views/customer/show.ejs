@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ticket Details</title>
+</head>
+<body>
+  <h1>Ticket Details</h1>
+  <p><strong>Ticket ID:</strong> <%= ticket._id %></p>
+  <p><strong>Train Name:</strong> <%= ticket.trainId.name %></p>
+  <p><strong>Train Number:</strong> <%= ticket.trainId.trainNumber %></p>
+  <p><strong>Seats Booked:</strong> <%= ticket.seatCount %></p>
+  <p><strong>Booking Date:</strong> <%= ticket.bookingDate.toDateString() %></p>
+  <p><strong>From:</strong> <%= ticket.trainId.startStation %></p>
+  <p><strong>To:</strong> <%= ticket.trainId.endStation %></p>
+
+  <a href="/users/tickets">Back to My Tickets</a>
+</body>
+</html>

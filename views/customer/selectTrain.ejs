@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Train</title>
+</head>
+<body>
+  <h1>Available Trains</h1>
+  <% if (trains.length > 0) { %>
+    <ul>
+      <% trains.forEach(train => { %>
+        <li>
+          <strong><%= train.name %> (Train No: <%= train.trainNumber %>)</strong><br>
+          Available Seats: <%= train.seatsAvailable %><br>
+          <form action="/users/tickets/new" method="GET">
+            <input type="hidden" name="trainId" value="<%= train._id %>">
+            <button type="submit">Select This Train</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No trains available for the selected route and date.</p>
+  <% } %>
+  <a href="/users/tickets/search">Back to Search</a>
+</body>
+</html>

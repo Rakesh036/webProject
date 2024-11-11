@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Booked Tickets</title>
+</head>
+<body>
+  <h1>My Booked Tickets</h1>
+  
+  <% if (tickets.length > 0) { %>
+    <ul>
+      <% tickets.forEach(ticket => { %>
+        <li>
+          <strong>Train: <%= ticket.train.name %> (Train No: <%= ticket.train.trainNumber %>)</strong><br>
+          Journey Date: <%= new Date(ticket.date).toLocaleDateString() %><br>
+          Seats: <%= ticket.seats %><br>
+          Status: <%= ticket.status %><br>
+          Starting Station: <%= ticket.startStation %><br>
+          Ending Station: <%= ticket.endStation %><br>
+          
+          <h4>Passengers:</h4>
+          <ul>
+            <% ticket.passengers.forEach(passenger => { %>
+              <li><%= passenger.name %>, Age: <%= passenger.age %></li>
+            <% }) %>
+          </ul>
+          
+          <% if (ticket.status !== 'cancelled') { %>
+            <!-- Cancel Ticket Button -->
+            <form action="/users/tickets/delete/<%= ticket._id %>" method="get">
+              <button type="submit">Cancel Ticket</button>
+            </form>
+          <% } else { %>
+            <p>This ticket has been cancelled.</p>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No tickets booked yet.</p>
+  <% } %>
+  
+  <a href="/users/tickets/search">Book a New Ticket</a>
+</body>
+</html>

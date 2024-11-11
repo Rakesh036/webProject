@@ -33,8 +33,8 @@ app.get("/", (req, res) => res.render("index"));
 
 // Routes
 app.use("/stations", stationRoutes);
-app.use("/trains", trainRoutes);
-app.use("/tickets", ticketRoutes);
+// app.use("/trains", trainRoutes);
+// app.use("/tickets", ticketRoutes);
 app.use("/users", userRoutes);
 
 // Admin Routes (middleware logging)

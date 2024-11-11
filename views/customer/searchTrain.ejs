@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Trains</title>
+</head>
+<body>
+  <h1>Search Trains</h1>
+  <form action="/users/trains/search" method="GET">
+    <label for="startStation">Starting Station:</label>
+    <input type="text" name="startStation" id="startStation" required>
+
+    <label for="endStation">Ending Station:</label>
+    <input type="text" name="endStation" id="endStation" required>
+
+    <label for="date">Date of Journey:</label>
+    <input type="date" name="date" id="date" required>
+
+    <button type="submit">Search</button>
+  </form>
+</body>
+</html>

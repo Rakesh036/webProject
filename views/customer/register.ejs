@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Admin Register</title>
-    <link rel="stylesheet" href="/css/admin.css" />
+    <meta charset="UTF-8" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/customer.css" />
   </head>
   <body>
-    <h2>Admin Registration</h2>
-    <form id="registerForm" action="/admins/admin-register" method="POST">
-      <input type="text" id="name" name="name" placeholder="Name" required />
-      <input type="email" id="email" name="email" placeholder="Email" required />
-      <input type="password" id="password" name="password" placeholder="Password" required />
+    <h1>Register</h1>
+    <form id="register-form" action="/users/register" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
       <button type="submit">Register</button>
     </form>
-    
-    <script src="/js/admin.js"></script>
+    <script src="../js/auth.js"></script>
   </body>
 </html>

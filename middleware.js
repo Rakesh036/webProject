@@ -1,34 +1,53 @@
 const jwt = require("jsonwebtoken");
-const Admin = require("./models/admin"); // Adjust path based on your structure
+const Admin = require("./models/admin");
+const Customer = require("./models/user"); // Adjust paths based on your project structure
 
-// Middleware to check if user is logged in
-exports.isLoggedIn = (req, res, next) => {
-  const token = req.cookies.authToken; // Assumes token is stored in cookies
+// Middleware to check if user is logged in (either admin or customer)
+exports.isLoggedIn = async (req, res, next) => {
+  const token = req.cookies.authToken;
   if (!token) {
-    return res.status(401).json({ message: "Please log in to access this resource" });
+    return res.redirect("/users/login");
   }
 
   try {
-    // Verify token and attach user ID to request object
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.userId = decoded.adminId;
+    let user;
+
+    if (decoded.adminId) {
+      // If adminId is in token, find the admin
+      user = await Admin.findById(decoded.adminId);
+      req.userType = "admin";
+    } else if (decoded.customerId) {
+      // If customerId is in token, find the customer
+      user = await Customer.findById(decoded.customerId);
+      req.userType = "customer";
+    }
+
+    if (!user) {
+      return res.redirect("/users/login");
+    }
+    req.user = user; // Sets req.user for either admin or customer
     next();
   } catch (error) {
-    console.error("Invalid token:", error);
-    res.status(401).json({ message: "Invalid token, please log in again" });
+    console.error("Authentication error:", error);
+    res.redirect("/users/login");
   }
 };
 
-// Middleware to check if logged-in user is an admin
-exports.isAdmin = async (req, res, next) => {
-  try {
-    const admin = await Admin.findById(req.userId);
-    if (!admin) {
-      return res.status(403).json({ message: "Admin privileges required" });
-    }
+// Middleware to ensure user is an admin
+exports.isAdmin = (req, res, next) => {
+  if (req.user && req.userType === "admin") {
     next();
-  } catch (error) {
-    console.error("Admin check failed:", error);
-    res.status(500).json({ message: "Error verifying admin access" });
+  } else {
+    res.status(403).json({ message: "Admin privileges required" });
+  }
+};
+
+// Middleware to ensure user is a customer
+exports.isCustomer = (req, res, next) => {
+  if (req.user && req.userType === "customer") {
+    next();
+  } else {
+    res.status(403).json({ message: "Customer privileges required" });
   }
 };

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Ticket Booking</title>
+</head>
+<body>
+  <h1>Book a New Ticket</h1>
+
+  <form action="/users/tickets" method="POST">
+    <input type="hidden" name="trainId" value="<%= train._id %>">
+
+    <!-- Start Station -->
+    <label for="startStation">Starting Station:</label>
+    <input type="text" name="startStation" id="startStation" value="<%= train.startStation %>" readonly required>
+
+    <!-- End Station -->
+    <label for="endStation">Ending Station:</label>
+    <input type="text" name="endStation" id="endStation" value="<%= train.endStation %>" readonly required>
+
+    <!-- Seat Count (No. of Passengers) -->
+    <label for="seatCount">Number of Seats:</label>
+    <input type="number" name="seatCount" id="seatCount" min="1" max="<%= train.seatsAvailable %>" required>
+
+    <!-- Date of Journey -->
+    <label for="journeyDate">Date of Journey:</label>
+    <input type="date" name="journeyDate" id="journeyDate" required>
+
+    <!-- Passenger Details Section -->
+    <h3>Passenger Details (Number of passengers = Number of Seats)</h3>
+    <div id="passenger-details"></div>
+
+    <button type="submit">Book Ticket</button>
+  </form>
+
+  <a href="/users/tickets">Back to My Tickets</a>
+
+  <script>
+    const seatCountInput = document.getElementById("seatCount");
+    const passengerDetailsDiv = document.getElementById("passenger-details");
+
+    // Function to update passenger fields based on seat count
+    seatCountInput.addEventListener("input", function() {
+      const seatCount = seatCountInput.value;
+      passengerDetailsDiv.innerHTML = '';  // Clear any existing passenger fields
+
+      // Add passenger fields for each seat
+      for (let i = 0; i < seatCount; i++) {
+        const passengerDiv = document.createElement("div");
+        passengerDiv.classList.add("passenger");
+        passengerDiv.innerHTML = `
+          <label for="passenger-name-${i}">Passenger ${i + 1} Name:</label>
+          <input type="text" name="passengers[${i}][name]" required>
+
+          <label for="passenger-age-${i}">Passenger ${i + 1} Age:</label>
+          <input type="number" name="passengers[${i}][age]" required>
+        `;
+        passengerDetailsDiv.appendChild(passengerDiv);
+      }
+    });
+  </script>
+</body>
+</html>
